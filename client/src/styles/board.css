@@ -1,0 +1,104 @@
+.bingo-board {
+  --board-size: 5;
+  display: grid;
+  grid-template-columns: repeat(var(--board-size), 1fr);
+  gap: 4px;
+  background: var(--paper);
+  border-radius: var(--radius-md);
+  padding: 10px;
+  box-shadow: 0 8px 0 var(--paper-shadow), 0 14px 22px rgba(0, 0, 0, 0.3);
+  width: min(92vw, 460px);
+  aspect-ratio: 1 / 1;
+}
+
+.bingo-board--10 {
+  gap: 2px;
+  padding: 8px;
+  width: min(94vw, 520px);
+}
+
+.bingo-board--empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--pencil-soft);
+  font-style: italic;
+}
+
+.bingo-cell {
+  position: relative;
+  background: #fffdf6;
+  border: 1.5px solid var(--paper-line);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: var(--pencil);
+  font-size: clamp(0.75rem, 3.2vw, 1.15rem);
+  transition: background 0.15s ease, transform 0.1s ease;
+  overflow: hidden;
+}
+
+.bingo-cell--compact {
+  font-size: clamp(0.55rem, 2vw, 0.8rem);
+  border-radius: 3px;
+}
+
+.bingo-cell--clickable {
+  cursor: pointer;
+}
+
+.bingo-cell--clickable:hover {
+  background: #fff6d9;
+  transform: scale(1.05);
+  z-index: 1;
+}
+
+.bingo-cell:disabled {
+  cursor: default;
+}
+
+.bingo-cell--marked {
+  background: #fbeee9;
+}
+
+.bingo-cell-number {
+  position: relative;
+  z-index: 1;
+}
+
+.bingo-cell--marked .bingo-cell-number {
+  opacity: 0.55;
+}
+
+.bingo-cell-strike {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--pen-red);
+  font-size: 1.3em;
+  font-weight: 700;
+  pointer-events: none;
+  z-index: 2;
+  text-shadow: 0 0 1px rgba(193, 68, 60, 0.4);
+}
+
+.bingo-cell--online {
+  background: rgba(242, 193, 78, 0.55);
+  box-shadow: inset 0 0 0 2px var(--chalk-yellow);
+}
+
+.bingo-cell--online.bingo-cell--marked {
+  background: rgba(242, 193, 78, 0.65);
+}
+
+@media (max-width: 480px) {
+  .bingo-board {
+    width: 94vw;
+  }
+}

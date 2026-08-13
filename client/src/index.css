@@ -1,0 +1,205 @@
+:root {
+  /* Color tokens — classroom chalkboard + notebook paper, not the usual AI cream/terracotta */
+  --chalkboard: #1f3b2c;
+  --chalkboard-dark: #14261b;
+  --chalkboard-line: rgba(255, 255, 255, 0.06);
+  --chalk-yellow: #f2c14e;
+  --chalk-white: #edebe0;
+  --paper: #fbf6e8;
+  --paper-shadow: #e8dfc4;
+  --paper-line: #cdc4a3;
+  --pencil: #332e26;
+  --pencil-soft: #6b6152;
+  --pen-red: #c1443c;
+  --pen-blue: #2e4a7a;
+  --wood: #a9713f;
+  --wood-dark: #7a4f28;
+  --success: #4c8c4a;
+
+  --font-display: "Permanent Marker", cursive;
+  --font-body: "Patrick Hand", cursive;
+  --font-mono: "Space Mono", monospace;
+
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 19px;
+  color: var(--pencil);
+  background: var(--chalkboard);
+  background-image:
+    radial-gradient(ellipse at top left, rgba(255, 255, 255, 0.05), transparent 55%),
+    repeating-linear-gradient(0deg, var(--chalkboard-line) 0px, transparent 1px, transparent 34px, var(--chalkboard-line) 35px);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  font-family: var(--font-body);
+  cursor: pointer;
+}
+
+button:focus-visible,
+[tabindex]:focus-visible,
+input:focus-visible {
+  outline: 3px solid var(--chalk-yellow);
+  outline-offset: 2px;
+}
+
+input {
+  font-family: var(--font-body);
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  margin: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---------- shared utility classes ---------- */
+
+.chalk-title {
+  font-family: var(--font-display);
+  color: var(--chalk-white);
+  text-shadow: 0 0 12px rgba(242, 193, 78, 0.25), 2px 2px 0 rgba(0, 0, 0, 0.25);
+  letter-spacing: 1px;
+}
+
+.paper-card {
+  background: var(--paper);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 10px 0 var(--paper-shadow), 0 18px 30px rgba(0, 0, 0, 0.35);
+  position: relative;
+  background-image: repeating-linear-gradient(0deg, transparent 0px, transparent 27px, var(--paper-line) 28px);
+}
+
+.pushpin {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #ff8a80, var(--pen-red) 60%, #7a1f1a 100%);
+  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.4);
+}
+
+.btn {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  letter-spacing: 0.5px;
+  padding: 14px 28px;
+  border-radius: var(--radius-md);
+  border: none;
+  color: var(--chalk-white);
+  background: var(--wood);
+  box-shadow: 0 5px 0 var(--wood-dark), 0 8px 16px rgba(0, 0, 0, 0.35);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 var(--wood-dark), 0 4px 8px rgba(0, 0, 0, 0.35);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-primary {
+  background: var(--pen-red);
+  box-shadow: 0 5px 0 #7a1f1a, 0 8px 16px rgba(0, 0, 0, 0.35);
+}
+
+.btn-primary:active {
+  box-shadow: 0 2px 0 #7a1f1a, 0 4px 8px rgba(0, 0, 0, 0.35);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--chalk-white);
+  box-shadow: none;
+  border: 2px dashed rgba(237, 235, 224, 0.5);
+}
+
+.btn-ghost:hover {
+  border-color: var(--chalk-yellow);
+  color: var(--chalk-yellow);
+}
+
+.text-input {
+  font-family: var(--font-body);
+  font-size: 1.15rem;
+  padding: 12px 16px;
+  border-radius: var(--radius-sm);
+  border: 2px solid var(--paper-line);
+  background: #fffdf6;
+  color: var(--pencil);
+  width: 100%;
+}
+
+.text-input:focus {
+  border-color: var(--pen-blue);
+}
+
+.washi-tape {
+  position: absolute;
+  height: 26px;
+  background: repeating-linear-gradient(45deg, #f2c14e, #f2c14e 8px, #e0ac2f 8px, #e0ac2f 16px);
+  opacity: 0.85;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.25);
+}
+
+.stamp {
+  font-family: var(--font-mono);
+  border: 3px solid var(--pen-red);
+  color: var(--pen-red);
+  border-radius: var(--radius-sm);
+  padding: 6px 14px;
+  display: inline-block;
+  transform: rotate(-3deg);
+  letter-spacing: 4px;
+  font-weight: 700;
+}

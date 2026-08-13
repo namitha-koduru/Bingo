@@ -1,0 +1,40 @@
+.app-shell {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  position: relative;
+}
+
+.center-fill {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  text-align: center;
+}
+
+.screen {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 16px 56px;
+  gap: 24px;
+}
+
+.screen-narrow {
+  width: 100%;
+  max-width: 460px;
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 17px;
+  }
+  .screen {
+    padding: 20px 12px 40px;
+  }
+}

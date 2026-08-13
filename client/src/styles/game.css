@@ -1,0 +1,174 @@
+.game-screen {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 18px 14px 48px;
+  gap: 16px;
+  width: 100%;
+}
+
+.game-header {
+  width: 100%;
+  max-width: 1000px;
+  background: var(--paper);
+  border-radius: var(--radius-lg);
+  padding: 16px 20px 18px;
+  box-shadow: 0 8px 0 var(--paper-shadow), 0 14px 24px rgba(0, 0, 0, 0.32);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.game-header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.game-mode-badge {
+  font-family: var(--font-display);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.15rem;
+  color: var(--pencil);
+}
+
+.game-mode-size {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--pencil-soft);
+  background: rgba(0, 0, 0, 0.05);
+  padding: 2px 8px;
+  border-radius: 6px;
+}
+
+.game-header-controls {
+  display: flex;
+  gap: 8px;
+}
+
+.icon-btn {
+  border: 2px solid var(--paper-line);
+  background: #fffdf6;
+  border-radius: var(--radius-sm);
+  font-size: 1.1rem;
+  padding: 6px 10px;
+  line-height: 1;
+}
+
+.icon-btn:hover {
+  border-color: var(--pen-blue);
+}
+
+.game-header-status {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.lines-progress {
+  flex: 1;
+  min-width: 180px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.lines-progress-label {
+  font-size: 0.95rem;
+  color: var(--pencil-soft);
+}
+
+.lines-progress-bar {
+  height: 10px;
+  background: rgba(0, 0, 0, 0.08);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.lines-progress-fill {
+  height: 100%;
+  background: var(--pen-red);
+  border-radius: 6px;
+  transition: width 0.35s ease;
+}
+
+.lines-progress-fill--opponent {
+  background: var(--pen-blue);
+}
+
+.turn-banner {
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  padding: 10px;
+  border-radius: var(--radius-sm);
+  letter-spacing: 0.5px;
+}
+
+.turn-banner--mine {
+  background: rgba(76, 140, 74, 0.15);
+  color: var(--success);
+}
+
+.turn-banner--theirs {
+  background: rgba(0, 0, 0, 0.05);
+  color: var(--pencil-soft);
+}
+
+.disconnect-banner,
+.opponent-left-banner {
+  width: 100%;
+  max-width: 1000px;
+  background: var(--chalk-yellow);
+  color: var(--pencil);
+  padding: 10px 16px;
+  border-radius: var(--radius-sm);
+  text-align: center;
+  font-size: 1rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+.opponent-left-banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.boards-wrap {
+  width: 100%;
+  max-width: 1000px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+.board-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.board-heading {
+  color: var(--chalk-white);
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.board-column--opponent {
+  opacity: 0.96;
+}
+
+@media (max-width: 760px) {
+  .boards-wrap {
+    grid-template-columns: 1fr;
+  }
+}

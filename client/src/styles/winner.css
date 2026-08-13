@@ -1,0 +1,90 @@
+.winner-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 38, 27, 0.82);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 300;
+  padding: 20px;
+  overflow: hidden;
+}
+
+.confetti-field {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.confetti-piece {
+  position: absolute;
+  top: -10px;
+  width: 9px;
+  height: 14px;
+  border-radius: 2px;
+}
+
+.winner-card {
+  position: relative;
+  z-index: 2;
+  max-width: 420px;
+  width: 100%;
+  padding: 36px 26px 28px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.winner-headline {
+  font-size: 1.9rem;
+  color: var(--pencil);
+}
+
+.winner-name {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: var(--pen-red);
+  margin: 0;
+}
+
+.winner-detail {
+  font-family: var(--font-mono);
+  color: var(--pencil-soft);
+  margin: 0;
+}
+
+.winner-badge {
+  font-size: 1.05rem;
+  margin: 6px 0 0;
+}
+
+.winner-personal {
+  color: var(--pencil-soft);
+  font-size: 1rem;
+  margin: 4px 0 10px;
+}
+
+.winner-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.winner-waiting {
+  color: var(--pencil-soft);
+  font-size: 0.95rem;
+}
+
+.btn-ghost-dark {
+  background: transparent;
+  color: var(--pencil);
+  box-shadow: none;
+  border: 2px dashed var(--paper-line);
+}
+
+.btn-ghost-dark:hover {
+  border-color: var(--pen-red);
+  color: var(--pen-red);
+}
